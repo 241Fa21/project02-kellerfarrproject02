@@ -48,7 +48,6 @@ public class StudentDriver {
         
         //Calculate and display average of online student’s fee.
         System.out.println("Average of Online Student fees: ");
-        
     
     fileInput.close();
     }
