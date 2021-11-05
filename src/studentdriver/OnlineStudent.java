@@ -18,4 +18,12 @@ public class OnlineStudent {
         //
         
     }
+    //
+    public double getPayableAmount(){
+        return 34.0;
+    }
+    @Override
+    public String toString(){
+        return "";
+    }
 }

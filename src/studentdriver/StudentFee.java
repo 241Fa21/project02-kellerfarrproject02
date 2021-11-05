@@ -9,7 +9,7 @@ package studentdriver;
  *
  * @author S536218
  */
-public class StudentFee {
+public abstract class StudentFee {
     //Instance variables
     private String studentName;
     private int studentID;
@@ -49,9 +49,7 @@ public class StudentFee {
         this.isEnrolled = isEnrolled;
     }
     //Abstract method and toString
-    public abstract getPayableAmount(){
-        return 34;
-    }
+    public abstract double getPayableAmount();
     @Override
     public String toString(){
         return "";

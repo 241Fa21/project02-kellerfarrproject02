@@ -33,7 +33,7 @@ public class GraduateStudent {
         return coursesEnrolled;
     }
     //
-    public abstract getPayableAmount(){
+    public double getPayableAmount(){
         return 34;
     }
     @Override
