@@ -10,5 +10,12 @@ package studentdriver;
  * @author S536218
  */
 public class OnlineStudent {
+    private int noOfMonths;
+    private double MONTHLY_FEE = 1245.25;
     
+    public OnlineStudent(String studentName, int studentID, boolean isEnrolled,
+            int noOfMonths){
+        //
+        
+    }
 }

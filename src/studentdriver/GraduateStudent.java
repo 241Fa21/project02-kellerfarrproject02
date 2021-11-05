@@ -15,5 +15,29 @@ public class GraduateStudent {
     private String graduateAssistantType;
     private double ADDITIONAL_FEE = 654.45;
     
-    public 
-}
+    public GraduateStudent(String studentName, int studentID, boolean isEnrolled,
+            boolean isGraduateAssistant, String graduateAssistantType, int coursesEnrolled){
+        //
+        super();
+    }
+    public GraduateStudent(String studentName, int studentID, boolean isEnrolled,
+            boolean isGraduateAssistant, int coursesEnrolled){
+        //
+        super();
+    }
+    
+    public boolean isIsGraduateAssistant(){
+        return isGraduateAssistant;
+    }
+    public int getCoursesEnrolled(){
+        return coursesEnrolled;
+    }
+    //
+    public abstract getPayableAmount(){
+        return 34;
+    }
+    @Override
+    public String toString(){
+        return "";
+    }
+}    
