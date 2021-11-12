@@ -9,7 +9,7 @@ package studentdriver;
  *
  * @author S536218
  */
-public class GraduateStudent {
+public class GraduateStudent extends StudentFee{
     private int coursesEnrolled;
     private boolean isGraduateAssistant;
     private String graduateAssistantType;
@@ -18,12 +18,17 @@ public class GraduateStudent {
     public GraduateStudent(String studentName, int studentID, boolean isEnrolled,
             boolean isGraduateAssistant, String graduateAssistantType, int coursesEnrolled){
         //
-        super();
+        super(studentName, studentID, isEnrolled);
+        this.isGraduateAssistant = isGraduateAssistant;
+        this.graduateAssistantType = graduateAssistantType;
+        this.coursesEnrolled = coursesEnrolled;
     }
     public GraduateStudent(String studentName, int studentID, boolean isEnrolled,
             boolean isGraduateAssistant, int coursesEnrolled){
         //
-        super();
+        super(studentName, studentID, isEnrolled);
+        this.isGraduateAssistant = isGraduateAssistant;
+        this.coursesEnrolled = coursesEnrolled;
     }
     
     public boolean isIsGraduateAssistant(){
@@ -34,10 +39,25 @@ public class GraduateStudent {
     }
     //
     public double getPayableAmount(){
-        return 34;
+        double tuition = ((coursesEnrolled * super.getCREDITS_PER_COURSE()) 
+                * super.getPER_CREDIT_FEE() + ADDITIONAL_FEE);
+        if(graduateAssistantType.equals("Full")){
+            tuition = 0;
+        }
+        else if(graduateAssistantType.equals("Half")){
+            tuition = tuition / 2;
+        }
+        return tuition;
     }
     @Override
     public String toString(){
-        return "";
+        return "*******Graduate students list*******"
+                + "\nStudent Name: " + super.getStudentName() 
+                + "\nStudent id: " + super.getStudentID() 
+                + "\nEnrolled: " + super.isIsEnrolled() 
+                + "\nGraduate assistant: "  +  isIsGraduateAssistant()
+                + "\nGraduate assistant type: " + graduateAssistantType
+                + "\nCouses enrolled: " + getCoursesEnrolled() 
+                + "\nPayable amount: " + getPayableAmount();
     }
 }    

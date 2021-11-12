@@ -24,7 +24,7 @@ public class StudentDriver {
 
         System.out.println();
         
-        StudentFees[] students = new StudentFees[12];
+        StudentFee[] students = new StudentFee[12];
         File file = new File("input.csv");
         Scanner fileInput = new Scanner(file);
 

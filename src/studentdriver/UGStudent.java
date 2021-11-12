@@ -9,7 +9,7 @@ package studentdriver;
  *
  * @author S536218
  */
-public class UGStudent {
+public class UGStudent extends StudentFee{
     //Instance variables
     private double scholarshipAmount;
     private int coursesEnrolled;
@@ -19,11 +19,11 @@ public class UGStudent {
     public UGStudent(String studentName, int studentID, boolean isEnrolled, 
            boolean hasScholarship, double scholarshipAmount, int coursesEnrolled){
         //
-        super();
-        
+        super(studentName, studentID, isEnrolled);
         this.hasScholarship = hasScholarship;
         this.scholarshipAmount = scholarshipAmount;
         this.coursesEnrolled = coursesEnrolled;
+        
     }
     
     public boolean isHasScholarship(){
@@ -37,10 +37,18 @@ public class UGStudent {
     }
     //
     public double getPayableAmount(){
-        return 34.0;
+        return ((coursesEnrolled * super.getCREDITS_PER_COURSE()) 
+                * super.getPER_CREDIT_FEE()) - scholarshipAmount;
     }
     @Override
     public String toString(){
-        return "";
+        return "*******Undergraduate students list*******"
+                + "\nStudent Name: " + super.getStudentName() 
+                + "\nStudent id: " + super.getStudentID() 
+                + "\nEnrolled: " + super.isIsEnrolled() 
+                + "\nScholarship: "  + isHasScholarship() 
+                + "\nScholarship amount: " + getScholarshipAmount() 
+                + "\nCouses enrolled: " + getCoursesEnrolled() 
+                + "\nPayable amount: " + getPayableAmount();
     }
 }
