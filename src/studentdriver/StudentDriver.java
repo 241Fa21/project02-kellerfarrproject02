@@ -19,41 +19,131 @@ public class StudentDriver {
         System.out.println("Project02");
 
         
-        
-    
-
         System.out.println();
         
-        StudentFees[] students = new StudentFees[12];
+        StudentFee[] students = new StudentFee[12];
+           
         File file = new File("input.csv");
+        Scanner scan = new Scanner(System.in);
         Scanner fileInput = new Scanner(file);
 
 
         
         while(fileInput.hasNext()) {
-            students = fileInput.next();
+            String gem = fileInput.next();
         }
-                
-        for (String s: students) {
+        
+        
+        
+        /*for (String s: gem) {
             System.out.println(s);
-        }
+}   */
         
-        //Calculate and display average of UG students fee, number of students
-        //who got scholarship, total no of courses enrolled by all UG students.
-        System.out.println("Average of Undergraduate fees: " );
-        System.out.println("Number of students who got a scholarship: ");
-        System.out.println("Total number of classes enrolled: ");
+             
+        System.out.println("******Undergraduate Students List******");
+        System.out.println("Student Name: " );
+        System.out.println("Student ID: ");
+        System.out.println("Enrolled: ");
+        System.out.println("Scholarship: ");
+        System.out.println("Scholarship Amount: ");
+        System.out.println("Courses Enrolled: ");
+        System.out.println("Payable Amount: ");
+        
+        System.out.println("Student Name: " );
+        System.out.println("Student ID: ");
+        System.out.println("Enrolled: ");
+        System.out.println("Scholarship: ");
+        System.out.println("Scholarship Amount: ");
+        System.out.println("Courses Enrolled: ");
+        System.out.println("Payable Amount: ");
+        
+        System.out.println("Student Name: " );
+        System.out.println("Student ID: ");
+        System.out.println("Enrolled: ");
+        System.out.println("Scholarship: ");
+        System.out.println("Scholarship Amount: ");
+        System.out.println("Courses Enrolled: ");
+        System.out.println("Payable Amount: ");
+        
+        System.out.println("Student Name: " );
+        System.out.println("Student ID: ");
+        System.out.println("Enrolled: ");
+        System.out.println("Scholarship: ");
+        System.out.println("Scholarship Amount: ");
+        System.out.println("Courses Enrolled: ");
+        System.out.println("Payable Amount: ");
+        
+        System.out.println("Student Name: " );
+        System.out.println("Student ID: ");
+        System.out.println("Enrolled: ");
+        System.out.println("Scholarship: ");
+        System.out.println("Scholarship Amount: ");
+        System.out.println("Courses Enrolled: ");
+        System.out.println("Payable Amount: ");
         
         
-        //Calculate and display average of graduate student’s fee, number of 
-        //students who got graduate assistantship, total number of courses enrolled by graduate students.
-        System.out.println("Average of Graduate Student fees: ");
-        System.out.println("Number of students who got Graduate assistantship: ");
-        System.out.println("Total number of classes enrolled: ");
+        
+        System.out.println("******Graduate Students List******");
+        System.out.println("Student Name: " );
+        System.out.println("Student ID: ");
+        System.out.println("Enrolled: ");
+        System.out.println("Graduate assistant: ");
+        System.out.println("Graduate assistant type: ");
+        System.out.println("Courses Enrolled: ");
+        System.out.println("Payable Amount: ");
+        
+        System.out.println("Student Name: " );
+        System.out.println("Student ID: ");
+        System.out.println("Enrolled: ");
+        System.out.println("Graduate assistant: ");
+        System.out.println("Graduate assistant type: ");
+        System.out.println("Courses Enrolled: ");
+        System.out.println("Payable Amount: ");
+        
+        System.out.println("Student Name: " );
+        System.out.println("Student ID: ");
+        System.out.println("Enrolled: ");
+        System.out.println("Graduate assistant: ");
+        System.out.println("Graduate assistant type: ");
+        System.out.println("Courses Enrolled: ");
+        System.out.println("Payable Amount: ");
+        
+        System.out.println("Student Name: " );
+        System.out.println("Student ID: ");
+        System.out.println("Enrolled: ");
+        System.out.println("Graduate assistant: ");
+        System.out.println("Graduate assistant type: ");
+        System.out.println("Courses Enrolled: ");
+        System.out.println("Payable Amount: ");
         
         
-        //Calculate and display average of online student’s fee.
-        System.out.println("Average of Online Student fees: ");
+        
+        System.out.println("******Online Students List******");
+        System.out.println("Student Name: " );
+        System.out.println("Student ID: ");
+        System.out.println("Enrolled: ");
+        System.out.println("No of months: ");
+        System.out.println("Payable Amount: ");
+        
+        System.out.println("Student Name: " );
+        System.out.println("Student ID: ");
+        System.out.println("Enrolled: ");
+        System.out.println("No of months: ");
+        System.out.println("Payable Amount: ");
+        
+        System.out.println("Student Name: " );
+        System.out.println("Student ID: ");
+        System.out.println("Enrolled: ");
+        System.out.println("No of months: ");
+        System.out.println("Payable Amount: ");
+        
+        
+        
+        System.out.println("******Undergraduate Students details:******");
+        System.out.println("Average students fees: ");
+        System.out.println("Scholarship count: ");
+        System.out.println("Total number of courses enrolled: ");
+        
     
     fileInput.close();
     }
