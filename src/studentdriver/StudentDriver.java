@@ -18,23 +18,38 @@ public class StudentDriver {
     public static void main(String[] args) throws FileNotFoundException {
         System.out.println("Project02");
 
+        Scanner input = new Scanner(System.in);
         
 
         System.out.println();
+        
+        System.out.print("Enter the No of UG Students: ");
+        int UG = input.nextInt();
+        
+        System.out.print("Enter the No of Graduate Students: ");
+        int Graduate = input.nextInt();
+        
+        System.out.print("Enter the No of Online Students: ");
+        int Online = input.nextInt();
+        
+        
+        
         
         StudentFee[] students = new StudentFee[12];
         File file = new File("input.csv");
         Scanner fileInput = new Scanner(file);
 
-
+        String[] string = new String[6];
       
         while(fileInput.hasNext()) {
+            string = fileInput.next.split(",");
             students = fileInput.next();
         }
                 
         for (String s: students) {
             System.out.println(s);
         }
+
         
         //Calculate and display average of UG students fee, number of students
         //who got scholarship, total no of courses enrolled by all UG students.
