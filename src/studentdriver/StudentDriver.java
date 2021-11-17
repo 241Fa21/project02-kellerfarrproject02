@@ -19,8 +19,6 @@ public class StudentDriver {
         System.out.println("Project02");
 
         
-        
-    
 
         System.out.println();
         
@@ -29,7 +27,7 @@ public class StudentDriver {
         Scanner fileInput = new Scanner(file);
 
 
-        
+      
         while(fileInput.hasNext()) {
             students = fileInput.next();
         }
@@ -40,20 +38,16 @@ public class StudentDriver {
         
         //Calculate and display average of UG students fee, number of students
         //who got scholarship, total no of courses enrolled by all UG students.
-        System.out.println("Average of Undergraduate fees: " );
-        System.out.println("Number of students who got a scholarship: ");
-        System.out.println("Total number of classes enrolled: ");
+        UGStudent.class.toString();
         
         
         //Calculate and display average of graduate student’s fee, number of 
         //students who got graduate assistantship, total number of courses enrolled by graduate students.
-        System.out.println("Average of Graduate Student fees: ");
-        System.out.println("Number of students who got Graduate assistantship: ");
-        System.out.println("Total number of classes enrolled: ");
+        GraduateStudent.class.toString();
         
         
         //Calculate and display average of online student’s fee.
-        System.out.println("Average of Online Student fees: ");
+        OnlineStudent.class.toString();
     
     fileInput.close();
     }
