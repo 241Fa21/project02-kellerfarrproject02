@@ -39,16 +39,28 @@ public class StudentDriver {
         File file = new File("input.csv");
         Scanner fileInput = new Scanner(file);
 
-        String[] string = new String[6];
-      
+        Object[] string = new String[6];
+        int index = 0;
         while(fileInput.hasNext()) {
-            string = fileInput.next.split(",");
-            students = fileInput.next();
+            string = fileInput.next().split(",");
+            
+            /*
+            string[0] = (int)string[0];
+            string[1] = (String)string[1];
+            string[3] = (boolean)string[2];
+            string[4] = (int)string[3];
+            string[5] = (boolean)string[4];
+            string[6] = (double)string[5];
+            */
+            students[index] = new UGStudent((String)string[1], (int)string[0], (boolean)string[2], 
+                    (boolean)string[4], (double)string[5], (int)string[3]);
+            index += 1;
         }
-                
-        for (String s: students) {
+        
+        fileInput.close();        
+        /*for (String s: students) {
             System.out.println(s);
-        }
+        }*/
 
         
         //Calculate and display average of UG students fee, number of students
@@ -64,6 +76,6 @@ public class StudentDriver {
         //Calculate and display average of online student’s fee.
         OnlineStudent.class.toString();
     
-    fileInput.close();
+    
     }
 }
