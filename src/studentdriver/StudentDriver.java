@@ -39,7 +39,7 @@ public class StudentDriver {
         File file = new File("input.csv");
         Scanner fileInput = new Scanner(file);
 
-        Object[] string = new String[6];
+        String[] string = new String[6];
         int index = 0;
         while(fileInput.hasNext()) {
             string = fileInput.next().split(",");
@@ -51,17 +51,44 @@ public class StudentDriver {
             string[4] = (int)string[3];
             string[5] = (boolean)string[4];
             string[6] = (double)string[5];
+            
+            
             */
-            students[index] = new UGStudent((String)string[1], (int)string[0], (boolean)string[2], 
-                    (boolean)string[4], (double)string[5], (int)string[3]);
+            
+            if(string.length == 4){
+                students[index] = new OnlineStudent(string[1],Integer.parseInt(string[0]),
+                        Boolean.parseBoolean(string[2]),Integer.parseInt(string[3]));
+            }
+            else if(string.length == 6){
+                if(string[5].charAt(0) < 48 && string[5].charAt(0) > 57){
+                    
+                    students[index] = new UGStudent(string[1], Integer.parseInt(string[0]), 
+                            Boolean.parseBoolean(string[2]), Boolean.parseBoolean(string[4]),
+                            Double.parseDouble(string[5]), Integer.parseInt(string[3]));
+                }
+                else{
+                    students[index] = new GraduateStudent(string[1], Integer.parseInt(string[0]), 
+                            Boolean.parseBoolean(string[2]), Boolean.parseBoolean(string[4]),
+                            string[5], Integer.parseInt(string[3]));
+                }
+            }
             index += 1;
         }
         
-        fileInput.close();        
-        /*for (String s: students) {
-            System.out.println(s);
-        }*/
-
+        fileInput.close();  
+        /*
+        for (StudentFee s: students) {
+            if(s instanceof UGStudent){
+                System.out.println(s);
+            }
+            else if(s instanceof GraduateStudent){
+                System.out.println(s);
+            }
+            else if(s instanceof OnlineStudent){
+                System.out.println(s);
+            }
+        }
+        */
         
         //Calculate and display average of UG students fee, number of students
         //who got scholarship, total no of courses enrolled by all UG students.
