@@ -41,18 +41,20 @@ public class GraduateStudent extends StudentFee{
     public double getPayableAmount(){
         double tuition = ((coursesEnrolled * super.getCREDITS_PER_COURSE()) 
                 * super.getPER_CREDIT_FEE() + ADDITIONAL_FEE);
-        if(graduateAssistantType.equals("Full")){
+        if(isGraduateAssistant){
+            if(graduateAssistantType.equals("Full")){
             tuition = 0;
+            }
+            else if(graduateAssistantType.equals("Half")){
+                tuition = tuition / 2;
+            }
         }
-        else if(graduateAssistantType.equals("Half")){
-            tuition = tuition / 2;
-        }
+        
         return tuition;
     }
     @Override
     public String toString(){
-        return "*******Graduate students list*******"
-                + "\nStudent Name: " + super.getStudentName() 
+        return "Student Name: " + super.getStudentName() 
                 + "\nStudent id: " + super.getStudentID() 
                 + "\nEnrolled: " + super.isIsEnrolled() 
                 + "\nGraduate assistant: "  +  isIsGraduateAssistant()

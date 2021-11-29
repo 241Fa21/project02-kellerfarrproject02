@@ -32,7 +32,7 @@ public class StudentDriver {
         System.out.print("Enter the No of Online Students: ");
         int Online = input.nextInt();
         
-        
+        System.out.println();
         
         
         StudentFee[] students = new StudentFee[12];
@@ -41,6 +41,7 @@ public class StudentDriver {
 
         String[] string = new String[6];
         int index = 0;
+        int y = 0;
         while(fileInput.hasNext()) {
             string = fileInput.next().split(",");
             
@@ -54,17 +55,16 @@ public class StudentDriver {
             
             
             */
-            
-            if(string.length == 4){
-                students[index] = new OnlineStudent(string[1],Integer.parseInt(string[0]),
-                        Boolean.parseBoolean(string[2]),Integer.parseInt(string[3]));
-            }
-            else if(string.length == 6){
-                if(string[5].charAt(0) < 48 && string[5].charAt(0) > 57){
-                    
-                    students[index] = new UGStudent(string[1], Integer.parseInt(string[0]), 
+            if(y < UG){
+                students[index] = new UGStudent(string[1], Integer.parseInt(string[0]), 
                             Boolean.parseBoolean(string[2]), Boolean.parseBoolean(string[4]),
                             Double.parseDouble(string[5]), Integer.parseInt(string[3]));
+            }
+            else if(y > UG && y < UG + Graduate){
+                if(string[4].equals("false")){
+                    students[index] = new GraduateStudent(string[1], Integer.parseInt(string[0]), 
+                            Boolean.parseBoolean(string[2]), Boolean.parseBoolean(string[4]),
+                            Integer.parseInt(string[3]));
                 }
                 else{
                     students[index] = new GraduateStudent(string[1], Integer.parseInt(string[0]), 
@@ -72,14 +72,39 @@ public class StudentDriver {
                             string[5], Integer.parseInt(string[3]));
                 }
             }
+            else if(y >= UG + Graduate){
+                students[index] = new OnlineStudent(string[1],Integer.parseInt(string[0]),
+                        Boolean.parseBoolean(string[2]),Integer.parseInt(string[3]));
+            }
+            y += 1;
             index += 1;
         }
         
-        fileInput.close();  
-        /*
+        fileInput.close();
+        
+        int scholarship = 0;
+        int ugCourse = 0;
+        int gradAssist = 0;
+        int gradCourse = 0;
+        double underFees = 0.0;
+        double gradFees = 0.0;
+        double onlineFees = 0.0;
+        y = 0;
         for (StudentFee s: students) {
+            //
+            if(y == 0){
+                System.out.println("*******Undergraduate students list*******");
+            }
+            if(y == UG){
+                System.out.println("*******Graduate students list*******");
+            }
+            if(y == UG + Graduate){
+                System.out.println("*******Online students list*******");
+            }
+            //
             if(s instanceof UGStudent){
                 System.out.println(s);
+                //underFees += s.getPayableAmount();
             }
             else if(s instanceof GraduateStudent){
                 System.out.println(s);
@@ -87,8 +112,10 @@ public class StudentDriver {
             else if(s instanceof OnlineStudent){
                 System.out.println(s);
             }
+            System.out.println();
+            y += 1;
         }
-        */
+        
         
         //Calculate and display average of UG students fee, number of students
         //who got scholarship, total no of courses enrolled by all UG students.

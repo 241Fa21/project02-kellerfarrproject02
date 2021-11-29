@@ -25,8 +25,7 @@ public class OnlineStudent extends StudentFee{
     }
     @Override
     public String toString(){
-        return "*******Online students list*******"
-                + "\nStudent Name: " + super.getStudentName() 
+        return "Student Name: " + super.getStudentName() 
                 + "\nStudent id: " + super.getStudentID() 
                 + "\nEnrolled: " + super.isIsEnrolled() 
                 + "\nNumber of months: " + noOfMonths 

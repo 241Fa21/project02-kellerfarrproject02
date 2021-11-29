@@ -42,8 +42,7 @@ public class UGStudent extends StudentFee{
     }
     @Override
     public String toString(){
-        return "*******Undergraduate students list*******"
-                + "\nStudent Name: " + super.getStudentName() 
+        return "Student Name: " + super.getStudentName() 
                 + "\nStudent id: " + super.getStudentID() 
                 + "\nEnrolled: " + super.isIsEnrolled() 
                 + "\nScholarship: "  + isHasScholarship() 
