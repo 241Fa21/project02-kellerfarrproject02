@@ -35,10 +35,14 @@ public class UGStudent extends StudentFee{
     public int getCoursesEnrolled(){
         return coursesEnrolled;
     }
-    //
+    @Override
     public double getPayableAmount(){
-        return ((coursesEnrolled * super.getCREDITS_PER_COURSE()) 
+        double tuition = ((coursesEnrolled * super.getCREDITS_PER_COURSE()) 
                 * super.getPER_CREDIT_FEE() + ADDITIONAL_FEE) - scholarshipAmount;
+        if(!super.isIsEnrolled()){
+            tuition = 0;
+        }
+        return tuition;
     }
     @Override
     public String toString(){

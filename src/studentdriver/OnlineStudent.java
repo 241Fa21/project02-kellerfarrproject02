@@ -19,7 +19,7 @@ public class OnlineStudent extends StudentFee{
         super(studentName, studentID, isEnrolled);
         this.noOfMonths = noOfMonths;
     }
-    //
+    @Override
     public double getPayableAmount(){
         return MONTHLY_FEE * noOfMonths;
     }
