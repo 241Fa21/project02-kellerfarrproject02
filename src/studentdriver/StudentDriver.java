@@ -45,22 +45,12 @@ public class StudentDriver {
         while(fileInput.hasNext()) {
             string = fileInput.next().split(",");
             
-            /*
-            string[0] = (int)string[0];
-            string[1] = (String)string[1];
-            string[3] = (boolean)string[2];
-            string[4] = (int)string[3];
-            string[5] = (boolean)string[4];
-            string[6] = (double)string[5];
-            
-            
-            */
             if(y < UG){
                 students[index] = new UGStudent(string[1], Integer.parseInt(string[0]), 
                             Boolean.parseBoolean(string[2]), Boolean.parseBoolean(string[4]),
                             Double.parseDouble(string[5]), Integer.parseInt(string[3]));
             }
-            else if(y > UG && y < UG + Graduate){
+            else if(y >= UG && y < UG + Graduate){
                 if(string[4].equals("false")){
                     students[index] = new GraduateStudent(string[1], Integer.parseInt(string[0]), 
                             Boolean.parseBoolean(string[2]), Boolean.parseBoolean(string[4]),
@@ -83,9 +73,9 @@ public class StudentDriver {
         fileInput.close();
         
         int scholarship = 0;
-        int ugCourse = 0;
+        int UGCourseNum = 0;
         int gradAssist = 0;
-        int gradCourse = 0;
+        int gradCourseNum = 0;
         double underFees = 0.0;
         double gradFees = 0.0;
         double onlineFees = 0.0;
@@ -101,35 +91,48 @@ public class StudentDriver {
             if(y == UG + Graduate){
                 System.out.println("*******Online students list*******");
             }
-            //
+            //Calculate and display average of UG students fee, number of students
+            //who got scholarship, total no of courses enrolled by all UG students.
             if(s instanceof UGStudent){
                 System.out.println(s);
-                //underFees += s.getPayableAmount();
+                underFees += ((UGStudent) s).getPayableAmount();
+                UGCourseNum += ((UGStudent) s).getCoursesEnrolled();
+                if(((UGStudent) s).isHasScholarship()){
+                    scholarship += 1;
+                }
             }
+            //Calculate and display average of graduate student’s fee, number of 
+            //students who got graduate assistantship, total number of courses enrolled by graduate students.
             else if(s instanceof GraduateStudent){
                 System.out.println(s);
+                gradFees += ((GraduateStudent) s).getPayableAmount();
+                gradCourseNum += ((GraduateStudent) s).getCoursesEnrolled();
+                if(((GraduateStudent) s).isIsGraduateAssistant()){
+                    gradAssist += 1;
+                }
             }
+            //Calculate and display average of online student’s fee.
             else if(s instanceof OnlineStudent){
                 System.out.println(s);
+                onlineFees += ((OnlineStudent) s).getPayableAmount();
             }
             System.out.println();
             y += 1;
         }
         
+        System.out.println("**********Undergraduate Students details**********");
+        System.out.printf("Average Student fee: %.2f\n", underFees / UG);
+        System.out.println("Scholarship count: " + scholarship);
+        System.out.println("Total number of courses: " + UGCourseNum);
+        System.out.println();
         
-        //Calculate and display average of UG students fee, number of students
-        //who got scholarship, total no of courses enrolled by all UG students.
-        UGStudent.class.toString();
+        System.out.println("**********Graduate Students details**********");
+        System.out.printf("Average Student fee: %.2f\n", gradFees / Graduate);
+        System.out.println("Graduate Assistantship count: " + gradAssist);
+        System.out.println("Total number of courses: " + gradCourseNum);
+        System.out.println();
         
-        
-        //Calculate and display average of graduate student’s fee, number of 
-        //students who got graduate assistantship, total number of courses enrolled by graduate students.
-        GraduateStudent.class.toString();
-        
-        
-        //Calculate and display average of online student’s fee.
-        OnlineStudent.class.toString();
-    
-    
+        System.out.println("**********Online Students details**********");
+        System.out.printf("Average Student fee: %.2f\n", onlineFees / Online);
     }
 }

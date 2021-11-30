@@ -38,7 +38,7 @@ public class UGStudent extends StudentFee{
     //
     public double getPayableAmount(){
         return ((coursesEnrolled * super.getCREDITS_PER_COURSE()) 
-                * super.getPER_CREDIT_FEE()) - scholarshipAmount;
+                * super.getPER_CREDIT_FEE() + ADDITIONAL_FEE) - scholarshipAmount;
     }
     @Override
     public String toString(){

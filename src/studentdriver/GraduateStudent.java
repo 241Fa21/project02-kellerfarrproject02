@@ -42,11 +42,11 @@ public class GraduateStudent extends StudentFee{
         double tuition = ((coursesEnrolled * super.getCREDITS_PER_COURSE()) 
                 * super.getPER_CREDIT_FEE() + ADDITIONAL_FEE);
         if(isGraduateAssistant){
-            if(graduateAssistantType.equals("Full")){
+            if(graduateAssistantType.equals("full")){
             tuition = 0;
             }
-            else if(graduateAssistantType.equals("Half")){
-                tuition = tuition / 2;
+            else if(graduateAssistantType.equals("half")){
+                tuition /= 2;
             }
         }
         
